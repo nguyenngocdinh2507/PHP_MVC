@@ -15,9 +15,27 @@ if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ){
 define('_WEB_ROOT', $web_root);
 
 
+/**
+ * Tự động load config
+ */
 
+$config_dir = scandir('Configs');
+if(!empty($config_dir)){
+    foreach($config_dir as $item){
+        if($item!= '.' && $item!= '..' && file_exists('Configs/'.$item)){
+            require_once 'Configs/'.$item; //Load $item
+        }
+    }
+}
 
-require_once 'Configs/Routes.php'; //Load routes
 require_once 'Core/Route.php'; //Load Route
 require_once 'App/App.php'; // Load App
+//Kiểm tra config và load database
+if(!empty($config['database'])){
+    $db_config = array_filter($config['database']);
+    if(!empty($db_config)){
+        require_once 'Core/Connection.php';
+    }
+}
 require_once 'Core/Controller.php'; //Load Controller
+?>

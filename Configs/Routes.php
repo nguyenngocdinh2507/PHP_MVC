@@ -15,3 +15,5 @@ $routes = [
     'san-pham' => 'Product/index',
     'chi-tiet-san-pham/(.+)' => 'Product/detail/$1',
 ];
+
+?>

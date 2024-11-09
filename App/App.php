@@ -5,9 +5,8 @@
         public function __construct()
         {
 
-            //Call routers
-            global $routes;
-
+            //Call Global
+            global $routes, $config;
             $this->__routes = new Route();
 
             if(!empty($routes['default_controller'])){
