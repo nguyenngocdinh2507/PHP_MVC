@@ -93,10 +93,7 @@
             if(file_exists('App/Controllers/'.($urlCheck).'.php')){ //Kiểm tra file tồn tại
                 require_once 'Controllers/'.($urlCheck).'.php'; //Chỉ định tệp quan trọng
                 //Kiểm tra class tồn tại
-                echo 'Controllers/'.($urlCheck).'.php' . '<br />';
-                echo $this->__controller;
                 if(class_exists($this->__controller)){
-                    echo "ZOO";
                     //Đổi thành object
                     $this->__controller = new $this->__controller();
                     // var_dump($this->__controller);
