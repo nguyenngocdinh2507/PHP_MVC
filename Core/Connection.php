@@ -3,7 +3,7 @@ class Connection{
     /**
      * Connect database by PDO connection
      */
-    private static $instance = null;
+    private static $instance = null, $conn = null;
     private function __construct($config){
         //Ket noi db
         try{
@@ -21,7 +21,9 @@ class Connection{
             ];
 
             //Câu lệnh kết nối
-            $conn = new PDO($dsn, $config['user'], '', $options);
+            $con = new PDO($dsn, $config['user'], '', $options);
+            self::$conn = $con;
+
         }catch(Exception $e){
             $mess = $e->getMessage();
             die($mess);
@@ -31,7 +33,8 @@ class Connection{
     //Check connection ket noi
     public static function getInstance($config){
         if(self::$instance == null){
-            self::$instance = new Connection($config);
+            $connection = new Connection($config);
+            self::$instance = self::$conn;
         }
         return self::$instance;
     }
