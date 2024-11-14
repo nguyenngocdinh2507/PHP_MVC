@@ -13,12 +13,13 @@
             <th>Name</th>
         </tr>
         <?php
+        if(!empty($products))
             foreach($products as $key => $value){
         ?>
 
         <tr>
-            <td><?php echo htmlspecialchars($value->id) ?></td>
-            <td><?php echo $value->name ?></td>
+            <td><?php echo htmlspecialchars($value['category_id']) ?></td>
+            <td><?php echo $value['name_category'] ?></td>
         </tr>
 
         <?php

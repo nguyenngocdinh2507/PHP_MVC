@@ -8,6 +8,13 @@ $routes = [
     //Defint
     'default_controller' => 'Home',
 
+    //Login
+    'dang-nhap' => 'Login',
+
+    // Admin
+    'trang-quan-li-admin' => 'Admin/Dashboard/index',
+
+    // Client
     //Home
     'trang-chu' => 'Home/index',
    

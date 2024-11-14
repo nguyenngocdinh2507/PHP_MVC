@@ -1,36 +1,11 @@
 <?php
-class ProductModel{
+class ProductModel extends Model{
+    protected $_table = 'category';
     public function getProductList(){
-        return [
-            (object)[
-                'id'=> 1,
-                'name'=> 'Product1'
-            ],
-            (object)[
-                'id'=> 2,
-                'name'=> 'Product2'
-            ]
-        ];
+        return $this->getAll($this->_table);
     }
 
     public function getProduct($id){
-        $products = [
-            (object)[
-                'id'=> 1,
-                'name'=> 'Product1'
-            ],
-            (object)[
-                'id'=> 2,
-                'name'=> 'Product2'
-            ]
-        ];
-        $prd = (object)[];
 
-        foreach($products as $key => $product){
-            if($product->id == $id){
-                $prd = $product;
-            }
-        }
-        return $prd;
     }
 }

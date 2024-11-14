@@ -5,6 +5,14 @@ class Database{
     function __construct(){
         global $db_config;
         $this->__conn = Connection::getInstance($db_config);
+
+    }
+
+    function query($sql){
+        $statement = $this->__conn->prepare($sql);
+
+        $statement->execute();
+        return $statement;
     }
 
     function insert($table, $data){
@@ -50,14 +58,6 @@ class Database{
             }
         }
         return false;
-    }
-
-    function query($sql){
-        
-        $statement = $this->__conn->prepare($sql);
-
-        $statement->execute();
-        return $statement;
     }
 
     function lastInsertId(){

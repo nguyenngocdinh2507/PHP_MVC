@@ -2,6 +2,7 @@
 class Connection{
     /**
      * Connect database by PDO connection
+     * Single pattern for connecting
      */
     private static $instance = null, $conn = null;
     private function __construct($config){

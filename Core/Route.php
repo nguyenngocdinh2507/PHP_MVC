@@ -13,6 +13,7 @@ class Route{
         //Delete '/'
         $url = trim($url, '/');
 
+        
         if(empty($url)){
             $url = '/';
         }

@@ -1,0 +1,27 @@
+footer{
+    background-color: #333;
+    color: #ffffff !important;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 320px !important;
+
+    .main-footer{
+        height: 90%;
+        margin-top: 32px;
+
+        .container{
+            height: 100%;
+            padding: 0 16px;
+            display: flex !important;
+            align-items: start;
+            justify-content: space-evenly;
+            .content{
+                width: 20%;
+                display: flex;
+                justify-content: center;
+            }
+
+        }
+    }
+}

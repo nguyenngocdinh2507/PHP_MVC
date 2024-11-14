@@ -15,8 +15,8 @@ class ProductController extends Controller {
         $products = $this->model_product->getProductList();
         foreach ($products as $key => $value) {
             echo '<div>
-                <h1>Id : '.$value->id.'</h1>
-                <p>Name : '.$value->name.'</p>
+                <h1>Id : '.$value->category_id.'</h1>
+                <p>Name : '.$value->name_category.'</p>
             </div>';
         }
     }

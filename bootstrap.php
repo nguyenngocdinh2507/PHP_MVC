@@ -36,12 +36,8 @@ if(!empty($config['database'])){
     if(!empty($db_config)){
         require_once 'Core/Connection.php';
         require_once 'Core/Database.php';
-        $db = new Database();
-        $query = $db->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
-        echo ('<pre>');
-        print_r($query);
-        echo ('</pre>');
     }
 }
+require_once 'Core/Model.php'; // Load Model
 require_once 'Core/Controller.php'; //Load Controller
 ?>
