@@ -4,7 +4,7 @@ $config['database'] = [
     'host' => 'localhost',
     'user' => 'root',
     'pass' => '',
-    'db' => 'baocao'
+    'db' => 'find'
 ];
 
 ?>

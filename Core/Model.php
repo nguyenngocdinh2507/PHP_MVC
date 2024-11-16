@@ -8,32 +8,32 @@ class Model extends Database{
  
     public function getAll($table) {
         $query = "SELECT * FROM $table";
-        echo ('<pre>');
-        print_r($this->db->query($query)->fetchAll(PDO::FETCH_ASSOC));
-        echo ('</pre>');
         return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // public function getById($table, $id) {
-    //     $query = "SELECT * FROM {$table} WHERE id = :id";
-    //     $stmt = $this->db->prepare($query);
-    //     $stmt->bindParam(':id', $id);
-    //     $stmt->execute();
-    //     return $stmt->fetch();
-    // }
+    //Select by data in table
+    public function getByData($table, $data) {
+        echo ('</pre>');
+        $condition = '';
+        foreach ($data as $key => $value) {
+            $condition .= $key . ' = ' . '"'.$value.'" and ';
+        }
+        //Cắt and cuối
+        $condition = substr($condition, 0, -4);
+        
+        $query = "SELECT * FROM $table WHERE $condition ";
+        return $this->db->query($query)->fetch();
+        
+    }
 
-    // public function insert($table, $data) {
-    //     $columns = implode(", ", array_keys($data));
-    //     $values = ":" . implode(", :", array_keys($data));
-    //     $query = "INSERT INTO {$table} ({$columns}) VALUES ({$values})";
-        
-    //     $stmt = $this->db->prepare($query);
-    //     foreach ($data as $key => $value) {
-    //         $stmt->bindValue(":{$key}", $value);
-    //     }
-        
-    //     return $stmt->execute();
-    // }
+    public function getById($table, $id) {
+        $query = "SELECT * FROM {$table} WHERE user_id = $id";
+        return $this->db->query($query)->fetch();
+    }
+
+    public function insert($table, $data) {
+        return $this->db->insert($table, $data);
+    }
 
     // public function update($table, $data, $id) {
     //     $fields = '';

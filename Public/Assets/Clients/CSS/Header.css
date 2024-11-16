@@ -6,6 +6,7 @@ header {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
+    height: 88px;
 }
 
 .logo img {
@@ -21,12 +22,20 @@ header {
     max-width: 500px;
     margin: 0 20px;
 }
-
+.search-bar i{
+    padding: 16px 0 16px 16px;
+    color: #141414;
+    border-radius: 4px 0px 0px 4px;
+    background-color: rgb(255, 255, 255);
+    
+}
 .search-bar input {
-    width: 100%;
+    height: 48px;
+    width: 90%;
     padding: 16px;
     border: none;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 4px 4px 0px;
+    
 }
 
 .search-bar button {
@@ -39,7 +48,7 @@ header {
 }
 
 .search-bar button:hover {
-    background-color: #777;
+    background-color:rgb(37, 73, 110);
 }
 .login button{
     padding: 16px;
@@ -53,9 +62,11 @@ header {
     font-size: 18px;
     cursor: pointer;
     padding: 16px;
+
 }
 
 .notifications button:hover,
 .login button:hover {
-    color: #444444;
+    color:rgb(37, 73, 110);
+    opacity: 0.5;
 }

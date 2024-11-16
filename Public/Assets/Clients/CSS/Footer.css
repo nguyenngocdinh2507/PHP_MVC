@@ -1,27 +1,70 @@
 footer{
     background-color: #333;
-    color: #ffffff !important;
+    background-image: url(../../Images/background-footer.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     right: 0;
     left: 0;
-    height: 320px !important;
 
     .main-footer{
-        height: 90%;
-        margin-top: 32px;
-
+        margin: 0px auto;
+        padding: 36px 0 24px;
+        width: 76%;
+        
         .container{
             height: 100%;
-            padding: 0 16px;
+            padding: 0 0;
             display: flex !important;
+            flex-wrap: wrap;
             align-items: start;
-            justify-content: space-evenly;
+            justify-content: space-between;
             .content{
-                width: 20%;
+                width: 30%;
                 display: flex;
-                justify-content: center;
+                flex-direction:column ;
+                justify-content: start;
+                font-size: 20px;
+
+                >p:first-child{
+                    font-size: 28px;
+                }
+                a,p{
+                    padding: 8px 0;
+                    color: #ffffff !important;
+                    span{
+                        opacity: 0.7;
+                    }
+                }
+
+                .city-wrap{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: start;
+                    justify-content: space-around;
+                    p{
+                        padding: 4px;
+                        width: 50%;
+                        i{
+                            padding-right: 8px;
+                        }
+                    }
+                }
             }
 
+        }
+    }
+
+    .copyright-content{
+        background-color: #000000;
+        color: rgb(120, 179, 243);
+        
+        padding: 16px 0;
+        p{
+            font-size: 20px;
+            width: 76%;
+            margin: 0px auto;
         }
     }
 }

@@ -7,9 +7,13 @@
 $routes = [
     //Defint
     'default_controller' => 'Home',
-
     //Login
     'dang-nhap' => 'Login',
+    'kiem-tra-dang-nhap' => 'Login/checkLogin',
+    'dang-xuat' => 'Login/logout',
+    
+    // Register
+    'dang-ky' => 'Register/index',
 
     // Admin
     'trang-quan-li-admin' => 'Admin/Dashboard/index',
