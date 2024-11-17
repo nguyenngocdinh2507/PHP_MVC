@@ -1,0 +1,80 @@
+.total_post{
+    margin: 32px auto 0;
+}
+.post{
+    height: auto;
+    max-width: 680px !important;
+    margin: 32px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.post .post__header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.post__header .post__info{
+    display: flex;
+}
+
+.post__info .post__avt{
+    i{
+        font-size: 32px;
+    }
+}
+
+.post__info .post__user{
+    margin-left: 8px;
+}
+
+
+.post__header .post__menu{
+    background-color:rgba(81, 110, 140, 0.5);
+    margin: 4.5px 0;
+    padding: 4px 16px;
+}
+
+.post .post__content{
+    margin: 8px 0;
+    p{
+        font-size: 14px;
+    }
+}
+
+.post .post__image{
+    margin: 8px 0;
+    max-width: 650px;
+    min-width: 500px;
+    background-color: #ffffff;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.post .post__contact{
+    margin: 8px 0;
+}
+
+.post .post__footer{
+    margin: 8px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post__footer .post__action{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    p{
+        display: block;
+        margin-right: 12px;
+    }
+}

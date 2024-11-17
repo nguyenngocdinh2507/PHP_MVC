@@ -13,6 +13,10 @@ class HomeModel extends Model{
         return $this->getAll($_table);
     }
 
+    public function getMenuById($id){
+        $_table = 'menu';
+        return $this->getById($_table,$id);
+    }
     
 
 }

@@ -14,6 +14,8 @@ if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ){
 //Define web root
 define('_WEB_ROOT', $web_root);
 
+//Defaute timezone
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 /**
  * Tự động load config

@@ -53,10 +53,10 @@ button:focus {
 .clear{
     clear: both;
 }
-body{
-}
-#wrapper{
-    background-color: #f0f0f0;
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0; /* Loại bỏ khoảng trắng */
 }
 table {
     font-family: arial, sans-serif;
@@ -73,4 +73,26 @@ tr:nth-child(odd) {
 }
 tr > th{
     background-color: #cdcdcd;
+}
+
+#wrapper{
+    height: auto;
+    width: 100%;
+}
+#main{
+    margin-top: 88px;
+    overflow: hidden;
+}
+#main__content{
+    flex: 1;
+    height: auto;
+    max-width: calc(100% - 300px) !important;
+    position: relative;
+    left: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
 }

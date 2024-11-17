@@ -6,8 +6,8 @@ class Model extends Database{
         $this->db = new Database();
     }
  
-    public function getAll($table) {
-        $query = "SELECT * FROM $table";
+    public function getAll($table, $orderBy = '') {
+        $query = "SELECT * FROM $table " . $orderBy;
         return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -27,7 +27,7 @@ class Model extends Database{
     }
 
     public function getById($table, $id) {
-        $query = "SELECT * FROM {$table} WHERE user_id = $id";
+        $query = "SELECT * FROM {$table} WHERE {$table}_id = $id";
         return $this->db->query($query)->fetch();
     }
 
