@@ -20,3 +20,9 @@ menus.forEach((menu,index) => {
     }
 });
 
+//Menu drop header
+
+const avt = $('.user-avatar');
+const menu_drop = $('.dropdown-menu');
+
+// console.log(avt, menu_drop);

@@ -13,7 +13,6 @@ class Model extends Database{
 
     //Select by data in table
     public function getByData($table, $data) {
-        echo ('</pre>');
         $condition = '';
         foreach ($data as $key => $value) {
             $condition .= $key . ' = ' . '"'.$value.'" and ';

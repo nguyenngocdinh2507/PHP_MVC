@@ -27,7 +27,7 @@ class Connection{
 
         }catch(Exception $e){
             $mess = $e->getMessage();
-            die($mess);
+            die($mess . " Connection file");
         }
     }
 

@@ -9,13 +9,14 @@ public function getUserList() {
     return $this->getAll($_table);
 }
 
-public function getUser( $data=[]){
+public function getUserByData( $data=[]){
     $_table = 'user';
     return $this->getByData($_table, $data);
 }
 
 public function getUserById($id){
     $_table = 'user';
+    $s = $this->getById($_table, 1);
     return $this->getById($_table, $id);
 }
 
