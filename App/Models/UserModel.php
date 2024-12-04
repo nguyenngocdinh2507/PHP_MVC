@@ -16,7 +16,7 @@ public function getUserByData( $data=[]){
 
 public function getUserById($id){
     $_table = 'user';
-    $s = $this->getById($_table, 1);
+    // $s = $this->getById($_table, 1);
     return $this->getById($_table, $id);
 }
 

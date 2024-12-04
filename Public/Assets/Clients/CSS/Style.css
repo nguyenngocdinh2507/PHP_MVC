@@ -82,17 +82,27 @@ tr > th{
 #main{
     margin-top: 88px;
     overflow: hidden;
+
 }
 #main__content{
-    flex: 1;
     height: auto;
-    max-width: calc(100% - 300px) !important;
+    max-width: calc(100% - 300px - 300px) !important;
     position: relative;
     left: 300px;
+    right: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: start;
     align-items: center;
     overflow: hidden;
+}
+
+.message {
+    width: 300px;
+    position: fixed;
+    top: 88px;
+    right: 0;
+    bottom: 0;
+    background: #cdcdcd;
 }

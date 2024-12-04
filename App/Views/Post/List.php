@@ -20,20 +20,17 @@
     <?php
     foreach ($posts as $key => $post) { 
     
-    //Get user_name by id
+    //Get user_name
     $user_post_id = $post['user_id'];
-    $user_post = $this->repository_user->getUserById($user_post_id);
-    $user_post_name = $user_post['user_name'];
+    $user_post_name = $post['user_name'];
     
     //Time has passed 
-    $posttingTime = $post['created_at'];
-    $timeHasPassed = $this->repository_post->timeElapsed($posttingTime);
+    $timeHasPassed = $post['time_passed'];
 
     //Get menu name
-    $menu = $post['menu_id'];
-    $menu = $this->repository_menu->getMenuById($menu);
-    $menu = $menu['name_vn'];
+    $menu = $post['menu_name'];
     
+    //Post
     $postContent = $post['content'];
     $postImage = $post['image'];
     $location = $post['location'];
@@ -85,6 +82,7 @@
             <div class="post__action">
                 <p><i class="fa fa-commenting-o" aria-hidden="true"></i> Bình luận</p>
                 <p><i class="fa fa-eye" aria-hidden="true"></i> Lượt xem <?php echo $views ?></p>
+                <!-- Nếu là bài biết của tk -->
                 <?php if($user_id == $user_post_id){ ?>
                     <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
                     <p><i class="fa fa-trash" aria-hidden="true"></i></p>
@@ -99,7 +97,7 @@
     </div>
     
     <?php } ?>
-    <div class="post">
+    <!-- <div class="post">
 
         <div class="post__header">
             <div class="post__info">
@@ -149,7 +147,7 @@
                 Chia sẻ
                 <i class="fa fa-share" aria-hidden="true"></i>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>

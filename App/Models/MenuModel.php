@@ -13,6 +13,8 @@ class MenuModel extends Model {
         $_table = 'menu';
         return $this->getById($_table,$id);
     }
+
+    
 }
 
 ?>

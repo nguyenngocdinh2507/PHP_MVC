@@ -20,16 +20,7 @@
     <link href="/Public/Assets/Fonts/fontawesome-free-6.7.0-web/css/sharp-duotone-thin.css" rel="stylesheet" /> -->
     <!-- <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
      <!-- Editor -->
-     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: '#content', // ID của textarea
-            menubar: false, // Ẩn menu
-            plugins: 'lists link image preview', // Các plugin hỗ trợ
-            toolbar: 'undo redo | bold italic underline | bullist numlist | alignleft aligncenter alignright alignjustify | link', // Thanh công cụ
-            height: 300 // Chiều cao của editor
-        });
-    </script>
+     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
     </head>
     <title><?php echo ($title) ? $title :  "Web"  ?></title>
 </head>
@@ -48,6 +39,7 @@
             $this->render($_view_leftbar, $contents_leftbar);
             $this->render($_view_home, $contents_home);
             ?>
+            <div class="message"></div>
         
         </div>
         <?php

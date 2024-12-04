@@ -8,9 +8,9 @@ $routes = [
     //Defint
     'default_controller' => 'Home',
     //Login
-    'dang-nhap' => 'User/login',
-    'kiem-tra-dang-nhap' => 'User/checkLogin',
-    'dang-xuat' => 'User/logout',
+    'dang-nhap' => 'Account/login',
+    'kiem-tra-dang-nhap' => 'Account/checkLogin',
+    'dang-xuat' => 'Account/logout',
     
     // Register
     'dang-ky' => 'Register/index',
@@ -24,6 +24,7 @@ $routes = [
 
     //Post
     'dang-tin' => 'Post/index',
+    'them-tin' => 'Post/add',
    
     //Product
     'san-pham' => 'Product/index',
