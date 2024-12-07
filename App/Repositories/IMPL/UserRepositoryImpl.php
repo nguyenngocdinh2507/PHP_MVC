@@ -18,7 +18,9 @@ class UserRepositoryImpl extends BaseRepository implements UserRepository {
         return $this->model_user->getUserById($_id);
     }
 
-    
+    public function addUser($data = []){
+        return $this->model_user->addUser($data);
+    }
 
 
     

@@ -19,9 +19,19 @@ class Model extends Database{
         }
         //Cắt and cuối
         $condition = substr($condition, 0, -4);
-        
         $query = "SELECT * FROM $table WHERE $condition ";
         return $this->db->query($query)->fetch();
+        
+    }
+    public function getByDatas($table, $data) {
+        $condition = '';
+        foreach ($data as $key => $value) {
+            $condition .= $key . ' = ' . '"'.$value.'" and ';
+        }
+        //Cắt and cuối
+        $condition = substr($condition, 0, -4);
+        $query = "SELECT * FROM $table WHERE $condition ";
+        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
         
     }
 

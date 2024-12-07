@@ -9,7 +9,7 @@
     // echo ('</pre>');
 
     if(empty($posts)){
-        echo 'LOADING !!!'; exit();
+        echo 'LOADING !!!'; 
     }
     $totalPost = count($posts);
 
@@ -74,7 +74,7 @@
             <img src="/Public/Assets/Images/<?php echo $postImage ?>" alt="" sizes="" srcset="">
         </div>
         <div class="post__contact">
-            <p>Khu vực : <?php echo $location ?></p>
+            <p><?php echo $location ?></p>
             <p>Thông tin liên hệ : <?php echo $phoneNumber ?></p>
         </div>
 

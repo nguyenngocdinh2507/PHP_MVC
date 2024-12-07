@@ -21,6 +21,8 @@
     <!-- <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
      <!-- Editor -->
      <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+    <!-- JQUERY -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <title><?php echo ($title) ? $title :  "Web"  ?></title>
 </head>

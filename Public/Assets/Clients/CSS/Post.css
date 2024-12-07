@@ -4,6 +4,7 @@
 .post{
     height: auto;
     max-width: 680px !important;
+    min-width: 680px !important;
     margin: 32px;
     padding: 8px 15px;
     border-radius: 10px;
@@ -135,6 +136,10 @@
 
 .newPost .newPost__content{
     padding: 8px 0 24px;
+    height: 220px; 
+    overflow-y: auto; 
+    border: 1px solid #ccc; 
+    padding: 10px;
 }
 
 .newPost .newPost__btnAddImage{

@@ -14,7 +14,6 @@ class MenuModel extends Model {
         return $this->getById($_table,$id);
     }
 
-    
 }
 
 ?>

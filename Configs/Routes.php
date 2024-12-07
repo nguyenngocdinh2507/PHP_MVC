@@ -11,10 +11,13 @@ $routes = [
     'dang-nhap' => 'Account/login',
     'kiem-tra-dang-nhap' => 'Account/checkLogin',
     'dang-xuat' => 'Account/logout',
-    
     // Register
-    'dang-ky' => 'Register/index',
+    'dang-ky' => 'Account/register',
+    //Get District, Ward
 
+    'lay-huyen' => 'Post/getDistrictsByProvince',
+    'lay-phuong' => 'Post/getWardsByDistrict',
+    
     // Admin
     'trang-quan-li-admin' => 'Admin/Dashboard/index',
 

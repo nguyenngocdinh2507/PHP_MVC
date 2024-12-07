@@ -13,7 +13,7 @@ if(!empty($repositories_dir)){
 }
 class BaseRepository {
     
-    // Load repositories
+    // Load model
     
 
     public function model($model){

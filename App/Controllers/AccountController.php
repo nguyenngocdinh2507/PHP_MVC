@@ -121,9 +121,8 @@ class AccountController extends Controller{
                 }
             }
 
-            $user_id = count($users);
+            $user_id = count($users) + 1;
             $_data = [
-                'user_id' => $user_id,
                 'user_name' => $username,
                 'email' => $email,
                 'password' => $hashedPassword,

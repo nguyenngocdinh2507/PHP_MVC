@@ -1,4 +1,5 @@
 <?php
+//Duy nhất em này gọi trực tiếp không thông qua repository, vì lười
 //Location
 // Kế thừa từ class model
 class HomeModel extends Model{
@@ -23,10 +24,10 @@ class HomeModel extends Model{
     // $data=[] dùng hàm getByData
     public function getDistrictsByProvince($data=[]) {
         $_table = 'district';
-        return $this->getByData($_table, $data);
+        return $this->getByDatas($_table, $data);
     }
     public function getWardsByDistrict($data=[]) {
         $_table = 'wards';
-        return $this->getByData($_table, $data);
+        return $this->getByDatas($_table, $data);
     }
 }

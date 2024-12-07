@@ -105,25 +105,38 @@
                 </div>
                 <div class="newPost__btnAddImage">
                     <input type="file" name="btnAddImage" class="" id="btnAddImage" value = "+ Thêm ảnh" accept="image/*">
-                </div>
+                </div> 
                 <div class="newPost__location">
+                    <input type="text" name="location_value" value="" style="display: none;" >
                     <span>Khu vực mất đồ</span>
-                    <select name="location" id="" aria-placeholder="Vui lòng chọn khu vực" required>
-                        <option value="123"  >Tất cả địa điểm</option>
+                    <select name="province" id="province" aria-placeholder="Vui lòng chọn khu vực" required>
+                        <option value=""  >Tất cả địa điểm</option>
                         <?php foreach($provinces as $key => $value){ ?>
                         <option value="<?php echo $value['province_id'] ?>"><?php echo $value['name'] ?></option>
                         <?php } ?>
                     </select>
-                    <textarea name="" id="" rows="4" placeholder="Số nhà hoặc tên phố"></textarea>
+
+                    <!-- Select Huyện -->
+                    <label for="district">Huyện:</label>
+                    <select id="district" name="district" disabled>
+                        <option value="">Chọn Huyện</option>
+                    </select>
+
+                    <!-- Select Phường -->
+                    <label for="ward">Phường:</label>
+                    <select id="ward" name="ward" disabled>
+                        <option value="">Chọn Phường</option>
+                    </select>
+                    <textarea name="street" id="street" rows="4" placeholder="Số nhà hoặc tên phố"></textarea>
                 </div>
                 <div class="newPost__tel">
                     <span>Số điện thoại</span>
-                    <input type="text" placeholder="0123456789" required>
+                    <input type="text" id="phone" name="phone" placeholder="0123456789" required>
                 </div>
-                <div class="newPost__reward">
+                <!-- <div class="newPost__reward">
                     <span>Treo thưởng (Có thể bỏ qua)</span>
                     <input type="text" name="" id="" placeholder="VND" >
-                </div>
+                </div> -->
                 <div class="newPost__footer">
                     <!-- <button class="cancel-btn" >Thoát</button> -->
                     <button class="btn" >Đăng tin</button>
@@ -131,6 +144,7 @@
 
         </form>
     </div>
+
 </div>
 
 <!-- Box confirm -->
@@ -145,6 +159,7 @@
     </div>
 </div>
 </div>
+
 <script setup >
 //Khởi tạo editor 5
 ClassicEditor
@@ -172,7 +187,7 @@ ClassicEditor
     // const $ = document.querySelector.bind(document);
     // const $$ = document.querySelectorAll.bind(document);
     
-    //Exit
+    //Exit Nút thoát
     const btn_exit = document.querySelector('.exit');
     const customConfirm = document.getElementById("customConfirm");
     const confirmYes = document.getElementById("confirmYes");
@@ -236,5 +251,115 @@ ClassicEditor
             }
         });
     }
+
+    //Location. Tỉnh huyện xã
+    $(document).ready(function() {
+        // Khi chọn tỉnh, lấy danh sách huyện
+        $('#province').change(function() {
+            const provinceId = $(this).val();
+            $('#district').html('<option value="">Loading...</option>').prop('disabled', true);
+            $('#ward').html('<option value="">Chọn Phường</option>').prop('disabled', true);
+
+            if (provinceId) {
+                $.ajax({
+                    url: '/lay-huyen', // File PHP xử lý lấy huyện
+                    method: 'GET',
+                    data: { province_id: provinceId },
+                    success: function(data) {
+                        const districts = JSON.parse(data);
+                        console.log(districts);
+                        let options = '<option value="">Chọn Huyện</option>';
+                        districts.forEach(function(district) {
+                            options += `<option value="${district.district_id}">${district.name}</option>`;
+                        });
+                        $('#district').html(options).prop('disabled', false);
+                    }
+                });
+            } else {
+                $('#district').html('<option value="">Chọn Huyện</option>').prop('disabled', true);
+            }
+        });
+
+        // Khi chọn huyện, lấy danh sách phường
+        $('#district').change(function() {
+            const districtId = $(this).val();
+            // console.log(districtId);
+            $('#ward').html('<option value="">Loading...</option>').prop('disabled', true);
+
+            if (districtId) {
+                $.ajax({
+                    url: 'lay-phuong', // File PHP xử lý lấy phường
+                    method: 'GET',
+                    data: { district_id: districtId },
+                    success: function(data) {
+                        const wards = JSON.parse(data);
+                        // console.log(wards);
+                        let options = '<option value="">Chọn Phường</option>';
+                        wards.forEach(function(ward) {
+                            options += `<option value="${ward.wards_id}">${ward.name}</option>`;
+                        });
+                        $('#ward').html(options).prop('disabled', false);
+                    }
+                });
+            } else {
+                $('#ward').html('<option value="">Chọn Phường</option>').prop('disabled', true);
+            }
+        });
+    });
+
+    
+    const p_location =document.querySelector('.post__contact').childNodes[1];
+    const location_value = document.getElementsByName('location_value')[0];
+    // console.log(location_value.value);
+    var text_location = "";
+    var province = "";
+    var district = "";
+    var ward = "";
+    var street = "";
+    
+
+    const e_province = document.querySelector('#province');
+    e_province.onchange = ((event) => {
+        province = e_province.options[e_province.selectedIndex].textContent;
+        text_location = ` Khu vực: ${province} ${district} ${ward} ${street}`;
+        p_location.innerHTML = text_location;
+        location_value.value =text_location
+        // console.log(text_location);
+    });
+    
+    const e_district = document.querySelector('#district');
+    e_district.onchange = ((event) => {
+        district = " - " + e_district.options[e_district.selectedIndex].textContent;
+        text_location = ` Khu vực: ${province} ${district} ${ward} ${street}`;
+        p_location.innerHTML = text_location;
+        location_value.value =text_location
+        // console.log(text_location);
+    });
+    
+    const e_ward = document.querySelector('#ward');
+    e_ward.onchange = ((event) => {
+        ward = " - " + e_ward.options[e_ward.selectedIndex].textContent;
+        text_location = ` Khu vực: ${province} ${district} ${ward} ${street}`;
+        p_location.innerHTML = text_location;
+        location_value.value =text_location
+        // console.log(text_location);
+    });
+
+    const e_street = document.querySelector('#street');
+    e_street.onkeyup = ((event) => {
+        street = " - " + event.target.value
+        text_location = ` Khu vực: ${province} ${district} ${ward} ${street}`;
+        p_location.innerHTML = text_location;
+        location_value.value =text_location
+    });
+
+    const p_phone =document.querySelector('.post__contact').childNodes[3];
+    // console.log(p_phone);
+    const e_phone =document.querySelector('#phone');
+    e_phone.onkeyup = ((event) => {
+        const phone = event.target.value;
+        p_phone.innerHTML = `Số điện thoại : ${phone}`;
+    })
+
 
 </script>

@@ -30,6 +30,10 @@ class PostRepositoryImpl extends BaseRepository implements PostRepository {
 
     }
 
+    public function addPost($data = []){
+        return $this->model_post->addPost($data);
+    }
+
     public function timeElapsed($datetime){
 
         // Đặt múi giờ Việt Nam

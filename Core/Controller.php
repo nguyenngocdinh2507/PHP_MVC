@@ -1,7 +1,7 @@
 <?php
 class Controller{
 
-    //Call repository
+    //Call model
     public function model($model){
         // Kiểm tra file tồn tại
         if(file_exists(_DIR_ROOT.'/App/Models/'.$model.'.php')){

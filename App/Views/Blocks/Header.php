@@ -41,7 +41,8 @@
 <script>
 
 const btn_add_post = document.querySelector('#add-post');
-console.log(btn_add_post.attributes.href.value);
+// console.log(btn_add_post.attributes.href.value);
+
 if(btn_add_post.attributes.href.value == ''){
     btn_add_post.attributes.href.value = '#';
 }

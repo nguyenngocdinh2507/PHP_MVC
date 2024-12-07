@@ -8,6 +8,10 @@ interface PostRepository{
     
     //Tínhh toán thời gian post đã đăng
     public function timeElapsed($timePost);
+    
+    //Add new post
+    public function addPost($data = []);
+    
 }
 
 ?>
